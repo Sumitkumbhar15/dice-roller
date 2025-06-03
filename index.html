@@ -4,8 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
+    <style>
+        body {
+        background-color: white;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        }
+
+        .nav-bar {
+        text-align: center;
+        box-shadow: 2px 2px 2px 2px darkgrey;
+        width: 100%;
+        padding: 20px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        color: blue;
+        }
+
+        .nav-bar:hover{
+            box-shadow: 4px 4px 4px 4px darkgray;
+            transition: 2s;
+            font-size: 50px;
+        }
+        .container{
+            height: 500px;
+            width: 300px;
+            border: 2px solid black;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 40%;
+            margin-right: 40%;
+            margin-top: 20px;
+            padding: 40px;
+            align-content: center;
+            align-items: center;
+            background-color: whitesmoke;
+            box-shadow: 3px 7px 10px 10px white;
+            border-style: none;
+        }
+        .container:hover{
+            box-shadow: 5px 10px 10px 10px lightskyblue;
+            transition: 2.5s;
+        }
+
+        .dice{
+            height: 200px;
+            margin-bottom: 100px;
+            margin-top: 50px;
+        }
+
+        .click-btn{
+            height: 50px;
+            width: 150px;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: black;
+            color: azure;
+        }
+
+        .click-btn:hover{
+            box-shadow: 3px 3px 3px 3px red;
+            transition: 1.5s;
+        }
+        .heading{
+            color: blue;
+            font-weight: 200;
+            font-size: 40px;
+            margin-top: -30px;
+        }
+        @keyframes roll {
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(360deg); }
+        100% { transform: rotate(0deg); }
+        }
+        .animation {
+        animation: roll 0.4s ease-in-out;
+        }
+        .footer{
+        text-align: center;
+        box-shadow: 2px 2px 2px 2px darkgrey;
+        width: 100%;
+        padding: 20px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        color: blue;
+        margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="nav-bar">
+        Welcome To Sumit World
+    </div>
+
+    <div class="container">
+    <h2 class="heading">Dice Roller</h2>
+    <img src="./images/1.png" class="dice animation" id="first-dice" alt="no1 dice">
+
+    <button id="clickme" class="click-btn" onclick="roll()">Click Me</button>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 by Sumit
+    </div>
+
+    <script>
+        function roll()
+        {
+            const diceImg = document.getElementById("first-dice");
+            diceImg.classList.remove("animation");      
+            void diceImg.offsetWidth;                  
+            diceImg.classList.add("animation"); 
+            const min=1;
+            const max=6;
+            const randomnum = Math.floor(Math.random() * (max - min + 1))+min ;
+            
+            if (randomnum === 1)
+        {
+            diceImg.src = "./images/1.png" ;
+        }
+        else if (randomnum === 2)
+        {
+            diceImg.src = "./images/2.png";
+        }
+        else if (randomnum === 3)
+        {
+            diceImg.src = "./images/3.png";
+        }
+        else if (randomnum === 4)
+        {
+            diceImg.src = "./images/4.png";
+        }
+        else if (randomnum === 5)
+        {
+            diceImg.src = "./images/5.png";
+        }
+        else if (randomnum === 6)
+        {
+            diceImg.src = "./images/6.png";
+        }
+
+    }
+    </script>
 </body>
 </html>
